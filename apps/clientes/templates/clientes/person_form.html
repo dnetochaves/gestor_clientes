@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block style %}
+<style>
+
+</style>
+{% endblock style %}
+{% block page-content %}
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+        <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.frist_name | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_frist_name">Primeiro Nome...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.last_name | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_last_name">Ultimo Nome...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.age | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_age">Idade...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.salary | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_salary">Salário...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.bio | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_bio">Biografia...</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.photo|add_class:"mdl-button mdl-js-button mdl-button--raised" }}
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.doc | add_class:"mdl-textfield__input" }}
+            </div>
+            <br>
+
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--fab">
+                <i class="material-icons">add</i>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock page-content %}

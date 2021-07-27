@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<style>
+    .demo-list-three {
+        width: 100%;
+    }
+</style>
+{% endblock style %}
+{% block page-content %}
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+        <a class="mdl-button mdl-js-button mdl-button--fab" href="{% url 'clientes:person_new' %}">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+
+        <ul class="demo-list-three mdl-list">
+            {% for list_person in list_persons%}
+            <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                    <img src="{{ list_person.photo.url }}" width="50px" height="50px" alt="">
+                    <span>{{ list_person.frist_name}}</span>
+                    <span class="mdl-list__item-text-body">
+                        {{ list_person.bio}}
+                    </span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                    <a class="mdl-list__item-secondary-action" href="{% url 'clientes:update' list_person.id %}"><i class="material-icons">edit</i></a>
+                    <a class="mdl-list__item-secondary-action" href="{% url 'clientes:delete' list_person.id %}"><i class="material-icons">delete</i></a>
+                </span>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+
+    </div>
+</div>
+
+
+{% endblock page-content %}
