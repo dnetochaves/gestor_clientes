@@ -6,6 +6,9 @@ class Docs(models.Model):
     number = models.IntegerField()
     note = models.TextField(null=True, blank=True)
 
+    def listar_docs():
+        return Docs.objects.all()
+
     def __str__(self):
         return self.type_name
 

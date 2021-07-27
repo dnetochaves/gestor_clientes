@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<style>
+    .demo-list-three {
+        width: 100%;
+    }
+</style>
+{% endblock style %}
+{% block page-content %}
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+        <a class="mdl-button mdl-js-button mdl-button--fab" href="{% url 'clientes:doc_new' %}">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+
+        <ul class="demo-list-three mdl-list">
+            {% for listar_doc in listar_docs%}
+            <li class="mdl-list__item mdl-list__item--three-line">
+                <span class="mdl-list__item-primary-content">
+                    
+                    <span>{{ listar_doc.type_name}}</span>
+                    <span class="mdl-list__item-text-body">
+                        {{ listar_doc.number}}<br>
+                        {{ listar_doc.note}}
+                    </span>
+                </span>
+                <span class="mdl-list__item-secondary-content">
+                    <a class="mdl-list__item-secondary-action" href="{% url 'clientes:update_doc' listar_doc.id %}"><i
+                            class="material-icons">edit</i></a>
+                    <a class="mdl-list__item-secondary-action" href="{% url 'clientes:delete_doc' listar_doc.id %}"><i
+                            class="material-icons">delete</i></a>
+                </span>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+
+    </div>
+</div>
+
+
+{% endblock page-content %}

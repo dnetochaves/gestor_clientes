@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block style %}
+<style>
+
+</style>
+{% endblock style %}
+{% block page-content %}
+
+<div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--4-col">
+    </div>
+    <div class="mdl-cell mdl-cell--4-col">
+        <form action="#" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.type_name | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_frist_name">Tipo</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.number | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_last_name">Numero</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                {{ form.note | add_class:"mdl-textfield__input" }}
+                <label class="mdl-textfield__label" for="id_age">Nota</label>
+            </div>
+            <br>
+
+            <button type="submit" class="mdl-button mdl-js-button mdl-button--fab">
+                <i class="material-icons">add</i>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock page-content %}
